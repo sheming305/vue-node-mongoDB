@@ -1,0 +1,4 @@
+整个demo是用nodejs模拟后台实现一个前台登陆请求
+
+
+proxyTable代理配置百度搜索如何配置？---->解决跨域请求config下面的index.js中的proxyTable配置
