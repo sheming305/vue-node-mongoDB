@@ -5,7 +5,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import HelloWorld from '@/components/HelloWorld'
 import Index from '@/components/index'
-import zhuCe from '@/components/zhuce'
+import loGin from '@/components/login'
 
 
 
@@ -25,9 +25,9 @@ export default new Router({
       component: Index
     },
     {
-      path: '/zhuce',
-      name: 'zhuCe',
-      component: zhuCe
+      path: '/loGin',
+      name: 'loGin',
+      component: loGin
     },
   ]
 })

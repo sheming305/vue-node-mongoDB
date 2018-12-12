@@ -1,3 +1,4 @@
+<!-- 注册页面 -->
 <template>
   <div class="hello">
    <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
@@ -7,9 +8,9 @@
   <el-form-item label="密码" prop="psd">
     <el-input type="password" v-model="ruleForm2.psd" autocomplete="off"></el-input>
   </el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm2')">提交注册</el-button>
     <el-button @click="resetForm('ruleForm2')">重置</el-button>
-    <el-button @click="login">去登陆</el-button>
+    <el-button @click="denglu" type="primary">登陆</el-button>
+    <el-button @click="zhuce" type="default">去注册页面</el-button>
   </el-form-item>
 </el-form>
   </div>
@@ -34,45 +35,29 @@
       };
     },
     methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
+      denglu() {
+        this.$refs.ruleForm2.validate((valid) => {
           if (valid) {
             let data = {
               userName: this.ruleForm2.userName,
               psd: this.ruleForm2.psd
             }
-            this.$axios.post('/api/checklogin',data).then(res => {
-              if(res.status === 200){
-                // localStorage.setItem('userInfo',JSON.stringify(res.data))
-                // let userInfo = JSON.parse(localStorage.getItem('userInfo'))
-                 //将用户数据存入vuex中
-                this.$store.commit('SAVE_USERINFO',res.data)
-                  console.log(res.data)
-                   this.$message({
-                    type: 'success',
-                    message: '注册成功'
-                  })
-                  this.$router.push('/index')
-              }else{
-                 this.$message({
-                    type: 'error',
-                    message: '登录失败,用户名或密码错误!'
-                  })
-              }
-            })
+            this.$router.push("/index")
+            // this.$axios.post('/api/checklogin',data).then(res => {
+            //   this.$router.push('/index')
+           
+            // })
           } else {
             return false;
           }
         });
       },
       resetForm(formName) {
-        this.$refs[formName].resetFields();
+        this.$refs.ruleForm2.resetFields();
       },
-      //用户注册
-      login(){
-        console.log('正在注册')
-        this.$router.push('/login')
-      }
+   		zhuce(){
+   			this.$router.push("/")
+   		}	
     }
   }
 </script>
