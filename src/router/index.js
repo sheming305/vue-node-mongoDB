@@ -6,7 +6,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import HelloWorld from '@/components/HelloWorld'
 import Index from '@/components/index'
 import loGin from '@/components/login'
-
+import userlist from '@/components/user/userlist'
+import usermain from '@/components/user/usermain'
+import userpassword from '@/components/user/userpassword'
 
 
 Vue.use(Router)
@@ -22,7 +24,25 @@ export default new Router({
     {
       path: '/index',
       name: 'Index',
-      component: Index
+      component: Index,
+      redirect:'/userlist',
+      children:[
+         {
+          path: '/userlist',
+          name: 'userlist',
+          component: userlist
+        },
+         {
+          path: '/usermain',
+          name: 'usermain',
+          component: usermain
+        },
+         {
+          path: '/userpassword',
+          name: 'userpassword',
+          component: userpassword
+        },
+      ]
     },
     {
       path: '/loGin',

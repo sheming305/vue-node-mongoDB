@@ -1,0 +1,9 @@
+<template>
+  <div>
+    <span>个人中心</span>
+  </div>
+</template>
+<script>
+</script>
+<style>
+</style>
