@@ -49,12 +49,16 @@ const actions = {
     })
   }
 }
-
+//创建全局的getters
+const getters = {
+  vipLIst: state => state.userList.filter(e => e.age > 25)
+}
 
 // console.log(state.userInfo)
 //创建store仓库暴露出
 export default new Vuex.Store({
   state,
   mutations,
+  getters,
   actions
 })
