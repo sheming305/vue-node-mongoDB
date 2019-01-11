@@ -42,23 +42,23 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios.get('/api/userlist').then(res => {
         console.log('获取用户数据列表', res.data)
-        //根据接口拿到数据后直接触发mutations里面的函数GET_USERLIST,直接把接口的数据赋值给函数
+        //根据接口拿到数据后直接触发mutations里面的函数GET_USERLIST,直接把接口的数据赋值 给函数
         commit('GET_USERLIST', res.data)
         resolve()
       })
     })
   }
 }
-//创建全局的getters
-const getters = {
-  vipLIst: state => state.userList.filter(e => e.age > 25)
-}
 
+//定义全局共享属性 getters 可以做一个过滤效果拿到年龄大于25岁的vip
+const getters = {
+  vipgetuser: state => state.userList.filter(item => item.age > 20)
+}
 // console.log(state.userInfo)
 //创建store仓库暴露出
 export default new Vuex.Store({
   state,
-  mutations,
   getters,
+  mutations,
   actions
 })

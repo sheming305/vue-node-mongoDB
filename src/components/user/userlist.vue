@@ -11,6 +11,21 @@
                        label="密码"
                        width="180">
       </el-table-column>
+      <el-table-column prop="age"
+                       label="年龄"
+                       width="180">
+      </el-table-column>
+      <el-table-column label="操作"
+                       width="100">
+        <template slot-scope="scope">
+          <el-button @click.native="handleEdit(scope.row)"
+                     type="text"
+                     size="small">编辑</el-button>
+          <el-button type="text"
+                     @click.native="handledelete(scope.row)"
+                     size="small">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -38,6 +53,12 @@ export default {
         console.log("userlist获取到的数据为", this.userList);
         this.tableData = this.userList;
       });
+    },
+    handleEdit(row) {
+      console.log(row);
+    },
+    handledelete(row) {
+      console.log(row);
     },
     ...mapActions(["GET_USERLIST"])
   }

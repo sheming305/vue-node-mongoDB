@@ -12,12 +12,12 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-      target: 'http://localhost:80/',  //目标跨域接口域名
-      changeOrigin: true,  //是否跨域
-      pathRewrite: {
-        '^/api': ''   //重写接口
+        target: 'http://localhost:80/', //目标跨域接口域名
+        changeOrigin: true, //是否跨域
+        pathRewrite: {
+          '^/api': '' //重写接口
+        }
       }
-    }
     },
 
     // Various Dev Server settings
@@ -28,7 +28,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

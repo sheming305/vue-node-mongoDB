@@ -18,12 +18,22 @@
                   v-model="ruleForm2.psd"
                   autocomplete="off"></el-input>
       </el-form-item>
+      <el-form-item label="年龄"
+                    prop="age">
+        <el-input type="userage"
+                  v-model="ruleForm2.age"
+                  autocomplete="off"></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary"
                    @click="submitForm('ruleForm2')">提交注册</el-button>
         <el-button @click="resetForm('ruleForm2')">重置</el-button>
         <el-button @click="login">去登陆</el-button>
       </el-form-item>
+      <!-- //插入背景图测试 -->
+      <span>插入背景图测试</span>
+      <span class="pan"></span>
+
     </el-form>
   </div>
 </template>
@@ -34,7 +44,8 @@ export default {
     return {
       ruleForm2: {
         userName: "",
-        psd: ""
+        psd: "",
+        age: ""
       },
       rules2: {
         userName: [
@@ -50,7 +61,8 @@ export default {
         if (valid) {
           let data = {
             userName: this.ruleForm2.userName,
-            psd: this.ruleForm2.psd
+            psd: this.ruleForm2.psd,
+            age: this.ruleForm2.age
           };
           this.$axios.post("/api/checklogin", data).then(res => {
             if (res.status === 200) {
@@ -104,5 +116,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.pan {
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: url("~@/assets/images/图层.png") -90px 12px no-repeat;
 }
 </style>

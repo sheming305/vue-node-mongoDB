@@ -11,7 +11,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/user", function (err) {
 //定义骨架
 var userSchema = new mongoose.Schema({
   userName: String,
-  psd: String
+  psd: String,
+  age: Number
 });
 
 //创建模型
@@ -28,12 +29,14 @@ router.post('/checklogin', (req, res) => {
   // console.log(req.body.id)
   let userName = req.body.userName;
   let psd = req.body.psd;
+  let age = req.body.age;
   let updatestr = {
     username: userName
   };
   let userS = new userModel()
   userS.userName = userName;
   userS.psd = psd;
+  userS.age = age;
   userModel.find(updatestr, function (err, data) {
     //通过用户名验证
     if (err) {
